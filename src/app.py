@@ -7,10 +7,10 @@ from sklearn.preprocessing import OneHotEncoder
 
 app = Flask(__name__)
 
-# Step 1: Load the dataset
+# Load the dataset
 wine_data = pd.read_csv('wine_data.csv')
 
-# Step 2: Data Preprocessing
+# Data Preprocessing
 # Separate categorical and numerical features
 categorical_features = ['grape_variety', 'region', 'winery']
 numerical_features = [col for col in wine_data.columns if col not in ['price'] + categorical_features]
@@ -24,14 +24,14 @@ categorical_df = pd.DataFrame(categorical_data, columns=encoder.get_feature_name
 X = pd.concat([wine_data[numerical_features], categorical_df], axis=1)
 y = wine_data['price']
 
-# Step 4: Split the data into training and testing sets
+# Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Step 5: Create and train the Linear Regression model
+# Create and train the Linear Regression model
 model = LinearRegression()
 model.fit(X_train, y_train)
 
-# Step 6: Model Evaluation
+# Model Evaluation
 y_pred = model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)

@@ -1,0 +1,4 @@
+grape_variety,region,vintage,rating,winery,price
+Chardonnay,California,2018,90,ABC Winery,25.99
+Merlot,France,2016,88,XYZ Winery,19.99
+Cabernet Sauvignon,California,2017,92,DEF Winery,39.99

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wine Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Wine Price Prediction</h1>
+    <form method="post">
+        <label for="grape_variety">Grape Variety:</label>
+        <input type="text" name="grape_variety" required><br><br>
+
+        <label for="region">Region:</label>
+        <input type="text" name="region" required><br><br>
+
+        <label for="vintage">Vintage:</label>
+        <input type="number" name="vintage" required><br><br>
+
+        <label for="rating">Rating:</label>
+        <input type="number" step="0.1" name="rating" required><br><br>
+
+        <label for="winery">Winery:</label>
+        <input type="text" name="winery" required><br><br>
+
+        <input type="submit" value="Search">
+    </form>
+
+    {% if predicted_price is defined %}
+        <h2>Predicted Price: {{ predicted_price }}</h2>
+    {% endif %}
+    </div>
+</body>
+</html>
